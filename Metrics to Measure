@@ -1,0 +1,57 @@
+Personal identification: username, email, password
+Choose time of day user would like daily cycle to reset, choose time for daily reminders
+
+Mental Health Metrics (probably measured on Likert/radio scale, use items from existing and reliable surveys used in psychology research)
+Done daily with results stored and compared over weeks and months. Help user determine cause if there is one and suggest solutions
+
+Depression:
+Have you had persistant feelings of sadness over the past 24 hours?
+Feelings of emptiness or numbness?
+Feelings of hopelessness?
+Lack of interest in things you in joy?
+Difficulty focusing?
+Difficulty with memory?
+Little motivation?
+Fatigue or tiredness?
+Poor apetite or excessive eating?
+Irritability?
+Mood swings?
+Social withdrawal?
+
+Anxiety:
+Have you felt persistantly on edge over the past 24 hours?
+Experienced feelings that something bad might happen?
+Have you felt badly about yourself or been hard on yourself?
+Do you feel as if you don't belong?
+Have you been overthinking things?
+Trouble falling asleep or staying asleep?
+Worrying about things out of your control?
+Ruminating on the past?
+
+Other (how much should we expand on symptoms outside of depression/anxiety/mood):
+Have you engaged in repetitive or compulsive behaviors today? (OCD)
+How much have you struggled with intrusive thoughts today?
+Have you avoided eating today due to negative self-image? (Anorexia)
+Have you induced vomiting after eating? (Bulimia)
+Hallucinations?
+Unconventional beliefs/delusions?
+Sensitivity to sound or light, or overstimulation?
+
+General:
+What medications do you take, if any? What do they treat? (Are we allowed to ask this)
+How much have you exercised (to the point of getting your heart rate up) in the past 24 hours?
+How much sleep did you get last night?
+How much have you eaten today?
+How much time did you spend doing something you enjoy?
+
+Suicide/self-harm (We would obviously need to figure out the ethics of tracking this; should provide resources for help whether we ask about it or not. 
+How much responsibility would we have for the user's safety and to what level would we be expected to intervene if someone is high risk?):
+Have you thought about harming yourself today?
+How many times?
+Did you harm yourself today?
+How many times?
+How much harm was done? (Any physical injuries such as bleeding or bruising, etc)
+Have you thought about killing yourself today?
+If so, do you have a plan?
+Do you have the means to do it?
+On a scale of 1 to 10 with 10 being the highest, how badly do you want to die?
