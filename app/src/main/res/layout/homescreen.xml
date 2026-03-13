@@ -81,7 +81,7 @@
                 android:theme="?attr/actionBarTheme">
 
                 <Button
-                    android:id="@+id/profile"
+                    android:id="@+id/action_profile"
                     android:layout_width="180dp"
                     android:layout_height="56dp"
                     android:text="@string/profile"
