@@ -12,18 +12,6 @@
         android:layout_height="match_parent">
 
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:contentScrim="@color/teal_200"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:toolbarId="@+id/toolbar">
-
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
         <Button
             android:id="@+id/resources"
             android:layout_width="wrap_content"
@@ -52,7 +40,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+        android:id="@+id/top_appbar"
 
         android:layout_height="150dp"
         android:layout_width="match_parent">
