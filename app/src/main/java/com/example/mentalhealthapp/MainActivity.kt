@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
         // on below line we are initializing
         // our variable with their ids.
-        msgTextView = findViewById(R.id.idTVMsg)
+        //msgTextView = findViewById(R.id.idTVMsg)
 
         // getting the data from our
         // intent in our uri.

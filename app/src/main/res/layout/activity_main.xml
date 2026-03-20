@@ -10,8 +10,7 @@
     tools:context=".MainActivity">
 
     <?xml version="1.0" encoding="utf-8"?>
-    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
@@ -90,6 +89,23 @@
             app:layout_anchor="@+id/master_constraint"
             app:layout_anchorGravity="center"
             app:layout_constraintWidth_percent="0.9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/my_readable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Filler_text"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
