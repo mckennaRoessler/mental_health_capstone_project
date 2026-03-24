@@ -9,4 +9,6 @@
     <string name="survey_button">Take your daily survey</string>
     <string name="Filler_text">Filler text</string>
     <string name="data_tracking">Data Tracking</string>
+    <string name="weekly_view">Weekly View</string>
+    <string name="monthly_view">Monthly View</string>
 </resources>
