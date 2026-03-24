@@ -47,7 +47,7 @@
         <HorizontalScrollView
             android:id="@+id/score_graph"
             android:layout_width="363dp"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:background="@color/purple_200"
             android:fillViewport="true"
             app:layout_anchor="@+id/master_constraint"
@@ -56,7 +56,8 @@
             app:layout_constraintVertical_bias="0.1"
             app:layout_constraintTop_toBottomOf="@+id/weekly_view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/avg_graph">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -65,7 +66,39 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/my_readable_text"
+                    android:id="@+id/score_graph_filler_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Filler_text"
+                    android:textSize="16sp"
+                    android:textColor="@android:color/black"
+                    android:lineSpacingExtra="4dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/avg_graph"
+            android:layout_width="363dp"
+            android:layout_height="250dp"
+            android:background="@color/purple_200"
+            android:fillViewport="true"
+            app:layout_anchor="@+id/master_constraint"
+            app:layout_anchorGravity="center"
+            app:layout_constraintWidth_percent="0.9"
+            app:layout_constraintVertical_bias="0.1"
+            app:layout_constraintTop_toBottomOf="@+id/score_graph"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/avg_graph_filler_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Filler_text"
