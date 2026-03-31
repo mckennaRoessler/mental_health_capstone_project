@@ -1,7 +1,7 @@
 package com.example.mentalhealthapp
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+//import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,11 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mentalhealthapp.ui.theme.MentalHealthAppTheme
 import android.net.Uri
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
     lateinit var msgTextView: TextView
@@ -51,6 +54,29 @@ class MainActivity : AppCompatActivity() {
 
         // to make the Navigation drawer icon always appear on the action bar
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val navigationView = findViewById<NavigationView>(R.id.nav_view)
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+
+                R.id.nav_data_tracking -> {
+                    val intent = Intent(this, DataTrackingActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.nav_mood_calendar -> {
+                    true
+                }
+
+                R.id.nav_journals -> {
+                    true
+                }
+
+                else -> false
+            }
+        }
 
         val uri: Uri? = intent.data
 
@@ -89,7 +115,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-}
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.activity_main_drawer, menu)
+        return true
+    }
     // override the onOptionsItemSelected()
     // function to implement
     // the item click listener callback
