@@ -11,4 +11,7 @@
     <string name="data_tracking">Data Tracking</string>
     <string name="weekly_view">Weekly View</string>
     <string name="monthly_view">Monthly View</string>
+    <string name="drawer_name">Navigation Drawer</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>

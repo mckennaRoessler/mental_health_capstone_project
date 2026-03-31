@@ -19,11 +19,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.mentalhealthapp.ui.theme.MentalHealthAppTheme
 import android.net.Uri
+import android.view.MenuItem
 import android.widget.TextView
-//import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     lateinit var msgTextView: TextView
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,23 +39,26 @@ class MainActivity : ComponentActivity() {
         // our variable with their ids.
         //msgTextView = findViewById(R.id.idTVMsg)
 
-        // getting the data from our
-        // intent in our uri.
+        // drawer layout instance to toggle the menu icon to open
+        // drawer and back button to close drawer
+        drawerLayout = findViewById(R.id.drawer_layout)
+        actionBarDrawerToggle = ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close)
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
+        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.syncState()
+
+        // to make the Navigation drawer icon always appear on the action bar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val uri: Uri? = intent.data
 
-        // checking if the uri is null or not.
         if (uri != null) {
-            // if the uri is not null then we are getting the
-            // path segments and storing it in list.
             val parameters: List<String> = uri.pathSegments
-
-            // after that we are extracting string from that parameters.
             val param = parameters[parameters.size - 1]
-
-            // on below line we are setting
-            // that string to our text view
-            // which we got as params.
             msgTextView.text = param
+
         setContent {
             MentalHealthAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize(),
@@ -82,6 +90,16 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+    // override the onOptionsItemSelected()
+    // function to implement
+    // the item click listener callback
+    // to open and close the navigation
+    // drawer when the icon is clicked
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            true
+        } else super.onOptionsItemSelected(item)
+    }
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
@@ -97,4 +115,5 @@ fun GreetingPreview() {
     MentalHealthAppTheme {
         Greeting("Android")
     }
-}}
+}
+}
