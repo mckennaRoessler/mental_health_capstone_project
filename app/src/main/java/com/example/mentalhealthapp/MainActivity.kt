@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import android.content.Intent
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
     lateinit var msgTextView: TextView
@@ -41,6 +42,13 @@ class MainActivity : AppCompatActivity() {
         // on below line we are initializing
         // our variable with their ids.
         //msgTextView = findViewById(R.id.idTVMsg)
+
+        // Code to click survey button
+        val surveyButton = findViewById<Button>(R.id.survey_button)
+        surveyButton.setOnClickListener {
+            val intent = Intent(this, SurveyActivity::class.java)
+            startActivity(intent)
+        }
 
         // drawer layout instance to toggle the menu icon to open
         // drawer and back button to close drawer

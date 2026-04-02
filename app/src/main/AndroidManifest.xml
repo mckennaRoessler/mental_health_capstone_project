@@ -54,5 +54,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".DataTrackingActivity" />
+        <activity android:name=".SurveyActivity" />
     </application>
 </manifest>
