@@ -2,6 +2,7 @@
 <!--on below line we are creating a swipe to refresh layout-->
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,7 +11,6 @@
     tools:context=".MainActivity">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
         android:layout_width="match_parent"
@@ -73,90 +73,94 @@
                     android:text="@string/survey_button"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/top_appbar"/>
+                    app:layout_constraintTop_toBottomOf="@id/top_appbar"
+                    app:layout_constraintBottom_toTopOf="@+id/feed"
+                    tools:ignore="NotSibling" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/feed"
-            android:layout_width="363dp"
-            android:layout_height="400dp"
-            android:background="@color/purple_200"
-            android:fillViewport="true"
-            app:layout_anchor="@+id/master_constraint"
-            app:layout_anchorGravity="center"
-            app:layout_constraintWidth_percent="0.9">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/my_readable_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Filler_text"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:lineSpacingExtra="4dp" />
-
-        </LinearLayout>
-
-        </androidx.core.widget.NestedScrollView>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/bottom_constraints"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_anchor="@+id/master_constraint"
-            app:layout_anchorGravity="center">
-
-            <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/bottom_appbar"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/teal_200"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/feed"
+                android:layout_width="363dp"
+                android:layout_height="400dp"
+                android:background="@color/purple_200"
+                android:fillViewport="true"
+                app:layout_constraintWidth_percent="0.9"
+                tools:layout_editor_absoluteX="24dp"
+                tools:layout_editor_absoluteY="218dp"
+                app:layout_constraintTop_toBottomOf="@+id/top_constraints"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_constraints"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/bottom_appbar_constraints"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-                    <Button
-                        android:id="@+id/resources"
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/my_readable_text"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/resources"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.9"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.9" />
+                        android:lineSpacingExtra="4dp"
+                        android:text="@string/Filler_text"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/bottom_constraints"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/bottom_appbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/teal_200"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/bottom_appbar_constraints"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:id="@+id/resources"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/resources"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.9"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.9" />
 
 
-                    <Button
-                        android:id="@+id/coping_techniques"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/coping_techniques"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.1"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.9" />
+                        <Button
+                            android:id="@+id/coping_techniques"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/coping_techniques"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.9" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </com.google.android.material.appbar.AppBarLayout>
+                </com.google.android.material.appbar.AppBarLayout>
 
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
