@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.drawerlayout)
     implementation("com.google.android.material:material:1.3.0-alpha03")
     implementation("com.google.android.material:material:1.2.0")
+    implementation("com.surveymonkey:surveymonkey-android-sdk:3.0.8")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
