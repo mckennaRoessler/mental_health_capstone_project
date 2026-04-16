@@ -31,7 +31,7 @@ Profile menu button: This button opens a right side navbar, which will present u
 
 Daily survey button: This button will allow the user to navigate to the survey screen, where they will be able to complete their daily survey.
 
-News feed: This scrollable box in the middle of the homescreen will be filled with articles and links related to recent research and developments within mental health, psychology, and general healthcare that could be relevant to the user.
+News feed: This scrollable box in the middle of the homescreen will be filled with articles and links related to recent research and developments within mental health, psychology, and general healthcare that could be relevant to the user. The articles will each be in a block that will include a headline, a picture from the article (if available) and the source of the article. Clicking on an article will direct them to the article at its source online.
 
 Coping Techniques button: This button will bring the user to a page where they can find a list of coping techniques for a variety of mental health symptoms. They will also be able to enter their own, and as such the page will have a section dedicated to the user's previous responses.
 
@@ -43,7 +43,7 @@ Resources button: This button will open a different right-side navbar that will 
 \caption{Menu Appbar}\label{fig:Menu_appbar}
 \end{figure}
 
-Right profile button: Opens a navbar on the right, containing the user’s profile information. It will include their profile picture (clickable to allow them to change it), as well as a logout link
+Left Menu: Clicking on the three horizontal lines in the top left will open a menu navbar on the left side of the screen. The homescreen will still be visible in the background but will be faded. The menu navbar will include three clickable links: Data Tracking, Mood Calendar, and Journals. Clicking any of these links will take the user to the respective screen described below.
 
 \begin{figure}[H]
 \centering
@@ -51,7 +51,7 @@ Right profile button: Opens a navbar on the right, containing the user’s profi
 \caption{Profile}\label{fig:Profile}
 \end{figure}
 
-Daily survey button: Clicking this button takes the user to the survey screen. The button will only appear on the homescreen if the user has not yet taken their survey for the day, and then it will disappear after the survey is completed.
+The profile button appears as a round profile picture and opens a navbar on the right, containing the user’s profile information. It will include their profile picture (clickable to allow them to change it), as well as a logout link.
 
 \begin{figure}[H]
 \centering
@@ -59,10 +59,7 @@ Daily survey button: Clicking this button takes the user to the survey screen. T
 \caption{Survey}\label{fig:Survey}
 \end{figure}
 
-
-Feed: Scrollable window with recommended research and news articles focused on the user’s areas of interest (they can select these from a list of choices when setting up their profile). The articles will each be in a block that will include a headline, a picture from the article (if available) and the source of the article. Clicking on an article will direct them to the article at its source online.
-
-Coping techniques: clicking on this button will take the user to another screen within the app that will display articles about coping strategies for the symptoms the user has been experiencing or rating highly in the daily surveys. There will also be a section on this screen where the user can write down some of their own coping strategies and affirmations that will then be displayed as reminders.
+Clicking the daily survey button takes the user to the survey screen. The button will only appear on the homescreen if the user has not yet taken their survey for the day, and then it will disappear after the survey is completed.
 
 \begin{figure}[H]
 \centering
@@ -70,7 +67,7 @@ Coping techniques: clicking on this button will take the user to another screen 
 \caption{Coping Techniques}\label{fig:Coping_techniques}
 \end{figure}
 
-Resources: Clicking the resources button will open a different right-side navbar that will include a list of resources for the user, such as hotlines for emergency support, crisis text line, warm lines for less urgent support, and national resources specific to the user’s symptoms 
+Coping Techniques: The coping techniques button can be found at the bottom left of the homescreen. Clicking it will bring the user to the coping techniques screen. At the top of this screen the user will see a button that opens a text box, allowing the user to submit coping techniques that have worked for them in the past in an open-ended response. These responses are then displayed in a section below the button to remind the user of things that have helped them in the past. Below this section, at the bottom of the screen, the user can find a section devoted to credible websites where they can find further suggested coping methods they can try.
 
 \begin{figure}[H]
 \centering
@@ -78,9 +75,7 @@ Resources: Clicking the resources button will open a different right-side navbar
 \caption{Resources}\label{fig:Resources}
 \end{figure}
 
-Left Menu: Clicking on the three horizontal lines in the top left will open a menu navbar on the left side of the screen. The homescreen will still be visible in the background but will be faded. The menu navbar will include three clickable links: Data Tracking, Mood Calendar, and Journals. Clicking any of these links will take the user to the respective screen described below.
-
-Data Tracking: This screen allows the user to view their past survey response data aggregated into line graphs. There are buttons at the top to change the view to weekly and monthly respectively. The top graph represents a weekly view, where each data point represents the score submitted that day over the past week. The second graph represents a monthly view, where each data point represents an average score throughout the whole month.
+Resources: Clicking on the heart button on the bottom right of the homescreen opens the resources menu, a navbar on the right side of the screen. This navbar will feature a list of phone numbers the user can call in an emergency, as well as a local resource locator, which brings the user to an outside website where they can specify their location and find local resources.
 
 \begin{figure}[H]
 \centering
@@ -88,7 +83,7 @@ Data Tracking: This screen allows the user to view their past survey response da
 \caption{Data Tracking}\label{fig:Data_tracking}
 \end{figure}
 
-Mood Calendar: Clicking on the mood calendar link in the menu brings the user to this screen. They will be shown a calendar for the current month, where each day will display a symbol representing the general mood they chose for that day in their daily survey.
+Data Tracking: This screen allows the user to view their past survey response data aggregated into line graphs. There are buttons at the top to change the view to weekly and monthly respectively. The top graph represents a weekly view, where each data point represents the score submitted that day over the past week. The second graph represents a monthly view, where each data point represents an average score throughout the whole month.
 
 \begin{figure}[H]
 \centering
@@ -96,7 +91,7 @@ Mood Calendar: Clicking on the mood calendar link in the menu brings the user to
 \caption{Mood Calendar}\label{fig:Mood_calendar}
 \end{figure}
 
-Journals: Clicking on the Journals link in the menu brings the user to this screen. There are buttons to both create new journal entries and view past entries. Clicking on the new entry button will open a text box for the user to type in. The remainder of this screen is dedicated to past responses, which will also include the date the response was submitted. Clicking the past entries button will open a scrollable list of timeframes the user can choose from, including the past week and a specific month and year. Their selection will dictate which entries are displayed in the bottom half of the screen.
+Mood Calendar: Clicking on the mood calendar link in the menu brings the user to this screen. They will be shown a calendar for the current month, where each day will display a symbol representing the general mood they chose for that day in their daily survey.
 
 \begin{figure}[H]
 \centering
@@ -104,13 +99,7 @@ Journals: Clicking on the Journals link in the menu brings the user to this scre
 \caption{Journals}\label{fig:Journals}
 \end{figure}
 
-Right Profile: Clicking the circle in the top right of the homescreen will open a navbar on the right. As with the menu, opening this navbar will fade the rest of the homescreen. On this navbar the user will see a larger version of the image they clicked on to get here: their profile picture. Clicking on this larger profile picture will give them the option to change it. There is also a logout link beneath the profile picture, which the user can click on to sign out of their account.
-
-Survey: The survey button can be found on the homescreen just below the top navbar if the user has not yet taken their daily survey. If they have already taken their survey, the button will disappear until the next day. Clicking the button brings the user to the survey screen, where they will be presented with the same survey questions as always, with a submit button in the corner that can be clicked to submit their responses and close the survey.
-
-Coping Techniques: The coping techniques button can be found at the bottom left of the homescreen. Clicking it will bring the user to the coping techniques screen. At the top of this screen the user will see a button that opens a text box, allowing the user to submit coping techniques that have worked for them in the past in an open-ended response. These responses are then displayed in a section below the button to remind the user of things that have helped them in the past. Below this section, at the bottom of the screen, the user can find a section devoted to credible websites where they can find further suggested coping methods they can try.
-
-Resources: Clicking on the heart button on the bottom right of the homescreen opens the resources menu, a navbar on the right side of the screen. This navbar will feature a list of phone numbers the user can call in an emergency, as well as a local resource locator, which brings the user to an outside website where they can specify their location and find local resources.
+Journals: Clicking on the Journals link in the menu brings the user to this screen. There are buttons to both create new journal entries and view past entries. Clicking on the new entry button will open a text box for the user to type in. The remainder of this screen is dedicated to past responses, which will also include the date the response was submitted. Clicking the past entries button will open a scrollable list of timeframes the user can choose from, including the past week and a specific month and year. Their selection will dictate which entries are displayed in the bottom half of the screen.
 
 \begin{figure}[H]
 \centering
