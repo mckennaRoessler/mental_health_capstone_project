@@ -114,6 +114,64 @@ Developing this application has been an excellent learning experience. Rather th
 I decided the homescreen was a sensible page to build first. Using the sketches I made in the spec doc as a reference, I began by experimenting with the "Design" window in my project. I discovered this required the use of an XML file, so I opened the "activity\_main.xml" file in the layouts folder of my project. It turns out this is the primary page where the default layout for the app is meant to be built.\cite{DeepLinking} Through plenty of trial and error, I learned how to properly add buttons and navbars (though these are called "appbars" in Android Studio). Learning to position these items on the screen respective to my sketches was where I ran into some challenges. Though Android Studio has a drag and drop feature that allows developers to do as the name suggests and select pre-made elements such as buttons and containers and place them on the screen, I found it difficult to actually move them around to the exact positions I wanted them in. Through some research I discovered the constraint layout.\cite{ConstraintLayout} This layout goes hand-in-hand with the design window and is required to fine-tune the positions and constraints of individual items on the screen. It also allows items to be constrained with respect to each other so that when the screen is rendered, items are held in place rather than anchored to the corner of the screen. I eventually learned that constraint layouts could be used within other layouts, such as the appbar layout. This allows for precise positioning within containers. This allowed me to position buttons within the top appbar. Using a tree of constraint layouts, I was able to get all the components of the homescreen put together and looking a lot like the sketch (see Figure\ref{fig:Homescreen}).
 
 Now that I had my homescreen assembled, it was time to begin implementing the button behaviors so I could navigate to other screens within the app. The most important component of this from the homescreen was building the left side navbar that would open at the press of a menu button at the top left corner of the homescreen. I first built the navbar as a separate layout.xml file, but learned that navbars are actually supposed to be treated as "drawers" within their parent page.\cite{DrawerLayout} Drawers are built as menu.xml files and corresponding links and buttons are coded as items within the menu. This allowed me to build the menu to be linked to the homescreen, and now that I had both layouts designed, the final step was to link them together and implement the button behavior. This would involve a series of steps, which included the process of deep linking \cite{DeepLinking} that would let me link the homescreen with an activity to control button behavior. 
+
+\section{Designing and Implementing the Survey}
+
+My background and interest in the psychology and mental health field were the primary motivation for the purpose of this app. I have worked as a research assistant with a professor who specialized in suicide prevention, and consequently I have learned a lot about psychological research and the types of survey items that are often used to understand mental health and human behavior. Items used in a survey of any official capacity should come from research-supported measures to ensure reliability and accurracy. Furthermore, a survey that is done repeatedly (in our case, daily, ideally) should be as non-intrusive as possible. It should be short and only take a few minutes to complete while still maintaining reliability. While considering surveys to use, I decided on the Kessler Psychological Distress Scale, or K10.\cite{K10} This survey has only 10 questions but still includes items to measure anxiety and depression accurately, similar to more common surveys like the GAD-7 and PHQ-9.
+
+Translating the survey into app form took some trial and error as I worked to find a safe and free platform to store the survey where I could actually collect responses. I decided to use Google Forms, which has a good reputation and is free to use, and conveniently has a feature that translates responses directly to a Google Sheets spreadsheet, which can then be linked to a local SQL database. Actually putting the survey together was only one part of the process. Another was to implement it into the Android application. Because I had put the survey in an external application, I had obviously decided not to hard code the items into the app. Instead, my goal was to embed it into the survey screen as it appeared in Google Forms. While learning how to do this, I discovered the WebView feature in Android Studio.\cite{Webview} This allows developers to embed a webpage into an XML screen by creating a WebView window as follows:
+
+\begin{verbatim}
+<WebView
+        android:id="@+id/webview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+\end{verbatim}
+
+However, this is only the visual aspect of making the space for the WebView to live. The programming that will allow the survey to be linked externally is done in the Activity.kt file, in the OnCreate method:
+
+\begin{verbatim}
+override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.survey_screen)
+
+        val myWebView = findViewById<WebView>(R.id.webview)
+        myWebView.webViewClient = WebViewClient()
+
+        myWebView.isVerticalScrollBarEnabled = true
+        myWebView.isHorizontalScrollBarEnabled = true
+
+        myWebView.setOnTouchListener { v, event ->
+            v.parent.requestDisallowInterceptTouchEvent(true)
+            false
+        }
+
+        //enable javascript as required for Google forms
+        val settings = myWebView.settings
+        settings.javaScriptEnabled = true
+        settings.domStorageEnabled = true
+
+        settings.useWideViewPort = true
+        settings.loadWithOverviewMode = true
+
+        settings.layoutAlgorithm = android.webkit.WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING
+
+        settings.builtInZoomControls = true
+        settings.displayZoomControls = false
+
+        myWebView.setInitialScale(1)
+
+        myWebView.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLSexAm_bFycILZNOOr8kyCZy2gTHmSwKHEun0BeEvnh3eckJgw/viewform?embedded=true")
+
+    }
+\end{verbatim}
+
+That's a long method just to display a survey! But this is what tells the activity which XML file to display as the activity is created, and then how to display the WebView and enable scrollability. We also need to allow button clicks to fill in the multiple choice bubbles, enable JavaScript to allow internet/web connectivity, and finally actually include the URL for the survey itself. It turns out there is a lot that goes into embedding external web pages!
+
 \section{Trials and Tribulations}
 
 As is typical of a capstone project experience, building the Mental Health Project has presented me with many opportunities to overcome challenges and problem solve, thereby growing my knowledge in the software development field.
@@ -138,6 +196,17 @@ Build a Responsive UI with ConstraintLayout. (n.d.). Android Developers. https:/
 
 \bibitem{Webview}
 Build web apps in WebView. (n.d.). Android Developers. https://developer.android.com/develop/ui/views/layout/webapps/webview
+
+\bibitem{Landscape}
+Screen Orientation in Android - Srinivas Narasegouda. (2026, March 7). Srinivas Narasegouda - Awareness Is More Important than Knowledge. https://srinivasnarasegouda.com/courses/android/screen-orientation-in-android/
+
+‌\bibitem{Resizability}
+App orientation, aspect ratio, and resizability. (2025). Android Developers. https://developer.android.com/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability
+
+\bibitem{K10}
+Kessler RC, Barker PR, Colpe LJ, Epstein JF, Gfroerer JC, Hiripi E, et al. Screening for serious mental illness in the general population. Arch Gen Psychiatry. 2003 Feb;60(2):184-9
+
+‌
 
 ‌
 
