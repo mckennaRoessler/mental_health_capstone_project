@@ -56,6 +56,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".DataTrackingActivity" />
-        <activity android:name=".SurveyActivity" />
+        <activity
+            android:name=".SurveyActivity"
+            android:screenOrientation="landscape" >
+            <property
+                android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
+                android:value="true" />
+        </activity>
     </application>
 </manifest>
