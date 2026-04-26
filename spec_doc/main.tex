@@ -1,6 +1,10 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{float}
+\usepackage{listings}
+\lstset{
+    breaklines=true 
+}
 
 \title{Mental Health Capstone Project}
 \author{McKenna Roessler}
@@ -121,7 +125,7 @@ My background and interest in the psychology and mental health field were the pr
 
 Translating the survey into app form took some trial and error as I worked to find a safe and free platform to store the survey where I could actually collect responses. I decided to use Google Forms, which has a good reputation and is free to use, and conveniently has a feature that translates responses directly to a Google Sheets spreadsheet, which can then be linked to a local SQL database. Actually putting the survey together was only one part of the process. Another was to implement it into the Android application. Because I had put the survey in an external application, I had obviously decided not to hard code the items into the app. Instead, my goal was to embed it into the survey screen as it appeared in Google Forms. While learning how to do this, I discovered the WebView feature in Android Studio.\cite{Webview} This allows developers to embed a webpage into an XML screen by creating a WebView window as follows:
 
-\begin{verbatim}
+\begin{lstlisting}
 <WebView
         android:id="@+id/webview"
         android:layout_width="0dp"
@@ -130,11 +134,11 @@ Translating the survey into app form took some trial and error as I worked to fi
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-\end{verbatim}
+\end{lstlisting}
 
 However, this is only the visual aspect of making the space for the WebView to live. The programming that will allow the survey to be linked externally is done in the Activity.kt file, in the OnCreate method:
 
-\begin{verbatim}
+\begin{lstlisting}
 override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.survey_screen)
@@ -168,7 +172,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
         myWebView.loadUrl("https://docs.google.com/forms/d/e/1FAIpQLSexAm_bFycILZNOOr8kyCZy2gTHmSwKHEun0BeEvnh3eckJgw/viewform?embedded=true")
 
     }
-\end{verbatim}
+\end{lstlisting}
 
 That's a long method just to display a survey! But this is what tells the activity which XML file to display as the activity is created, and then how to display the WebView and enable scrollability. We also need to allow button clicks to fill in the multiple choice bubbles, enable JavaScript to allow internet/web connectivity, and finally actually include the URL for the survey itself. It turns out there is a lot that goes into embedding external web pages!
 
@@ -176,6 +180,12 @@ That's a long method just to display a survey! But this is what tells the activi
 
 As is typical of a capstone project experience, building the Mental Health Project has presented me with many opportunities to overcome challenges and problem solve, thereby growing my knowledge in the software development field.
 Perhaps the most notable obstacle was learning how to properly utilize the Android Studio software to actually build the app. 
+
+\section{Future Directions}
+
+As my first independent full-scale project, the mental health application has been an ambitious undertaking, especially within the time constraint of a 15-week semester. As such, there are some features I would like the app to have but that I have not yet had an opportunity to implement. Even after I graduate I would like to continue work on this project so it can grow to become a fully-functioning app that I can deploy to the public. One of the most important features I would like to add next would include the data analysis portion. One of the biggest learning curves for me was figuring out how to collect and store the data this project is centered around. It is only appropriate that I now figure out how to aggregate that data in the database and display it in the graphs within the Data Tracking section of the app. There will be important considerations to keep in mind for this function, such as the question of how to isolate data for a specific respondant so that their data is the only information displayed; by extension, we will need a way to identify responses from the same user within the database so we know which data to select from.
+
+Another feature I would like to implement is the resources and the news feed. These sections would provide access to outside resources and would likely require updates as new research comes out. I thought that in the resources section, I could include a feature that allows the user to locate local resources. Now that I have learned how to embed the survey (an external item) into the application, I feel better prepared to work on adding further external resources as well.
 
 \begin{thebibliography}{9}
 
