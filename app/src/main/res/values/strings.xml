@@ -22,4 +22,8 @@
     <string name="new_entry">New Entry</string>
     <string name="past_entries">Past Entries</string>
     <string name="this_weeks_journal">This week\'s journal entries: </string>
+    <string name="national_suicide_hotline">National Suicide Hotline</string>
+    <string name="crisis_text_line">Crisis Text Line</string>
+    <string name="veteran_crisis_line">Veteran\'s Crisis Line</string>
+    <string name="local_resource_locator">Local Resource Locator</string>
 </resources>
