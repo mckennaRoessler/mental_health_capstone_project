@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/national_suicide_hotline"
+        android:title="@string/national_suicide_hotline"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/crisis_text_line"
+        android:title="@string/crisis_text_line"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/veteran_crisis_line"
+        android:title="@string/veteran_crisis_line"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/local_resource_locator"
+        android:title="@string/local_resource_locator"
+        app:showAsAction="never" />
+</menu>
