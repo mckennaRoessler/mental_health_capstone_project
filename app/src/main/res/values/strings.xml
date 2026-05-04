@@ -18,4 +18,8 @@
     <string name="post_coping_technique">Share a coping technique that has helped you</string>
     <string name="self">Things that have helped you in the past: </string>
     <string name="others">Things that have helped others: </string>
+    <string name="journals">Journals</string>
+    <string name="new_entry">New Entry</string>
+    <string name="past_entries">Past Entries</string>
+    <string name="this_weeks_journal">This week\'s journal entries: </string>
 </resources>
