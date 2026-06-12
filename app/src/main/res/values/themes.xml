@@ -2,4 +2,5 @@
 <resources>
 
     <style name="Theme.MentalHealthApp" parent="Theme.AppCompat.Light" />
+
 </resources>

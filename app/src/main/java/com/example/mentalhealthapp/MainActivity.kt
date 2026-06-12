@@ -39,9 +39,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        // on below line we are initializing
-        // our variable with their ids.
-        //msgTextView = findViewById(R.id.idTVMsg)
+
+        //show back button in action bar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Code to click survey button
         val surveyButton = findViewById<Button>(R.id.survey_button)
@@ -138,6 +138,17 @@ class MainActivity : AppCompatActivity() {
         return if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             true
         } else super.onOptionsItemSelected(item)
+    }
+
+    //enable back function on back button press
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onContextItemSelected(item)
     }
 
 @Composable
